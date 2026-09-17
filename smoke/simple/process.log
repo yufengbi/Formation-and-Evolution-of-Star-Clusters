@@ -1,0 +1,19 @@
+No parallel temporary files found to recover.
+G : 0.00449830997959438
+filename_prefix : data
+realtime_save : False
+realtime_save_mode : w
+lagr data is saved in file: data.lagr
+core data is saved in file: data.core
+esc_single data is saved in file: data.esc_single
+esc_binary data is saved in file: data.esc_binary
+CPU time profile:
+read 0.0006798505783081055
+find_pair 0.026383250951766968
+density 0.00026716291904449463
+center_core 0.00035133957862854004
+save_data 0.007780298590660095
+calc_pot 6.854534149169922e-07
+lagr 0.01654517650604248
+escaper 0.003260001540184021
+bse 0.0

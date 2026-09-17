@@ -1,0 +1,6 @@
+# ============ 2026-09-17 22:12:55  smoke test start ============
+# 22:12:56: /home/teamxdli_a/.local/anaconda3/envs/byf_avx/bin/python /Raid6/1b/teamxdli_a/biyufeng/FESC/PeTar/test/validation/make_ic.py --case functional_mcluster_dual_merge_smoke --output /Raid6/1b/teamxdli_a/biyufeng/petar_sim/smoke/initial.dat
+# 22:13:16: petar.init -u 1 -v 1.022712165045695 -f data.init initial.dat
+# 22:13:46: [修正] rm -f data.init  （之前错误地加了 -u）
+# 22:13:46: petar.init -v 1.022712165045695 -f data.init initial.dat
+# 22:13:56: OMP_NUM_THREADS=1 petar -u 1 -t 10 -o 1 -b 4 data.init >output 2>&1

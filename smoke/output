@@ -1,0 +1,109 @@
+     //==================================\\
+     ||                                  ||
+     || ::::::: ::::::. ::::::. .::::::. ||
+     || ::      ::    : ::    : ::       ||
+     || ::::::  ::    : ::::::'  `:::::. ||
+     || ::      ::::::' ::      `......' ||
+     ||     Framework for Developing     ||
+     ||        Particle Simulator        ||
+     ||     Version 8.0 (2025/09)       ||
+     \\==================================//
+
+       Home   : https://github.com/fdps/fdps 
+       E-mail : fdps-support@mail.jmlab.jp
+       Licence: MIT (see, https://github.com/FDPS/FDPS/blob/master/LICENSE)
+       Note   : Please cite the following papers.
+                - Iwasawa et al. (2016, Publications of the Astronomical Society of Japan, 68, 54)
+                - Namekata et al. (2018, Publications of the Astronomical Society of Japan, 70, 70)
+                - Iwasawa et al. (2020, Publications of the Astronomical Society of Japan, 72, 13)
+
+       Copyright (C) 2015 
+         Masaki Iwasawa, Ataru Tanikawa, Natsuki Hosono,
+         Keigo Nitadori, Takayuki Muranushi, Daisuke Namekata,
+         Kentaro Nomura, Junichiro Makino and many others
+******** FDPS has successfully begun. ********
+
+ ******************************************
+  ██████╗ ███████╗████████╗ █████╗ ██████╗
+  ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗
+  ██████╔╝█████╗     ██║   ███████║██████╔╝
+  ██╔═══╝ ██╔══╝     ██║   ██╔══██║██╔══██╗
+  ██║     ███████╗   ██║   ██║  ██║██║  ██║
+  ╚═╝     ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
+ ******************************************
+Version: 1759e_447e
+============== PeTar ================
+ Online document: (preparing)
+ GitHub page: https://github.com/lwang-astro/PeTar
+ License: MIT
+ Please cite the following papers when you use PeTar for any publications
+    FDPS: see above FPDS Logo message
+    SDAR: Wang L., Nitadori K., Makino J., 2020, MNRAS, 493, 3398
+    PeTar: Wang L., Iwasawa M., Nitadori K., Makino J., 2020, MNRAS, 497, 536
+ Copyright (C) 2017
+    Long Wang, Masaki Iwasawa, Keigo Nitadori, Junichiro Makino and many others
+=====================================
+Use quadrupole moment in tree force calculation
+Use 3rd order tidal tensor method
+Use Pseudoparticle multipole method
+Use 4th-order KDKDK mode for tree step
+Use orbit-dependent neighbor criterion
+Check energy of short-range (hard) integration
+Count isolated particles in hard clusters
+Use SIMD
+Calculate profile
+Use AR TTL method
+Use slowdown Tree method
+Use slowdown timescale criterion
+Print adjust group information
+=====================================
+Input data unit: 1
+End time of simulation: 10
+Output time interval for particle dataset snapshots: 1
+Number of primordial binaries (n_bin) for initialization (assuming the binaries' IDs are 1,2*n_bin): 4
+Reading data file name: data.init
+----- Finish reading main options -----
+----- Finish reading hard options -----
+----- Parallelization information -----
+MPI processors: 1
+OMP threads:    1
+----- Reading file: data.init -----
+Number of particles = 100
+Time = 0
+----- Unit set 1: Msun, pc, Myr -----
+gravitational_constant = 0.0044985021514696 pc^3/(Msun*Myr^2)
+----- Parameter list: -----
+ Average mass                      = 4.7567117898544
+ Mean inner changeover radius      = 0.064713518434362
+ Mean outer changeover radius      = 0.64713518434362
+ Minimum neighbor searching radius = 0.77656222121235
+ Velocity dispersion (1D)          = 0.14419167955027
+ Tree time step                    = 0.03125
+ Output time step                  = 1
+----- Hard Parameter list: -----
+ Mean search group radius:         = 0.064713518434362
+ Mean group radius                 = 0.05177081474749
+ Hermite timestep coefficient 4th  = 0.1
+ Hermite timestep coefficient init = 0.001
+ Hermite maximum timestep          = 0.015625
+ AR slowdown maximum timescale     = 0.0625
+ AR slowdown perturbation criterion= 0.0001
+ Artificial particle ID offset     = 101
+ KDTree minimum particles+groups   = 32
+-----  Save parameter files -----
+Save PeTar parameters to file data.par
+Save hard parameters to file data.par.hard
+-----  Finish parameter initialization -----
+
+Time: 0  N_real(loc): 100  N_real(glb): 100  N_all(loc): 136  N_all(glb): 136  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:              -0             0             0      -6496275  4.849094e+07 -5.498722e+07             0             0             0             0             0
+Slowdown:            -0             0             0      -6496275  4.849094e+07 -5.498722e+07             0             0             0             0             0
+Angular Momentum:  |L|err: 0  |L|err_cum: 0  L: -120.8224   80.14953    -109.5838  |L|: 181.7433
+C.M.: mass: 475.6712 pos: -0.05021366   0.001132331    -0.220163 vel: 0.03826528   1.077894    -0.008891895
+Error! negative integrated time step persists after ds reductions in integrateToTime (time-transformation gauge issue, not ds size)
+  T: -7.27363e-12  dT_err/T: 1  ds: 0.00736187  ds_init: 0.0294475  |Int_err/E|: nan  |Int_err_cum/E|: nan  |dE/E|: 0.26204  dE_cum: -5.89395e+06  Etot_sd: 2.24925e+07  T_end_flag: 0  Step_count: 3  Fix:  later
+  dt(negative step)=-7.27363e-12  ds=0.00736187  gt_drift_inv(pred)=1.41948e+06  time=-7.27363e-12  time_end=3.8147e-06  step_count=3  n_negative_dt_accepted=2
+                Time                  dE                Etot                Ekin                Epot            Gt_drift                   H             dE_intr             dH_intr         r_min_index      mass_min_index            r_min_sq          r_min_mass            mass_min  r_neighbor_crit_sq   need_resolve_flag   initial_step_flag    n_neighbor_group   n_neighbor_single                  ds         Time_offset        r_break_crit            dt_limit              g_func          Nstep(sum)     Nstep_tsyn(sum)               Nstep          Nstep_tsyn               dE_SD             Etot_SD             Ekin_SD             Epot_SD          dE_SDC_cum          dH_SDC_cum         dE_SDC_intr         dH_SDC_intr                N_SD                  I1                  I2           SD_factor       SD_factor_org       SD_factor_max                   N                mass               pos.x               pos.y               pos.z               vel.x               vel.y               vel.z            bin_stat            r_search                  id             mass_bk              status                r_in               r_out                  dt                time              acc0.x              acc0.y              acc0.z              acc1.x              acc1.y              acc1.z                 pot                mass               pos.x               pos.y               pos.z               vel.x               vel.y               vel.z            bin_stat            r_search                  id             mass_bk              status                r_in               r_out                mass               pos.x               pos.y               pos.z               vel.x               vel.y               vel.z            bin_stat            r_search                  id             mass_bk              status                r_in               r_out
+        -7.27363e-12        -5.89395e+06         2.24925e+07         1.95455e+07        -2.94697e+06        -3.39331e-07                -nan                   0                   0                  90                  23             44.0929             245.241             0.08158             21259.9                   1                   0                   2                  84           0.0294475                   0           0.0663207          3.8147e-06                   0                   0                   0                   0                   0        -5.89395e+06         2.24925e+07         1.95455e+07        -2.94697e+06                   0                   0                   0                   0                   1                   0                   1                   1                   1                   1                   2                  20            -1.21365            -3.73417            -3.19925          -0.0165328            -0.20866           0.0456092                   0             1.05453                  -3        -2.12676e+37        -2.12676e+37            0.104449             1.04449          3.8147e-06                   0                   0                   0                   0                   0                   0                   0            -1.43752                  10         7.62578e-08         3.17946e-09        -1.90642e-22             1396.65             62.6301        -1.01022e-12                 112             145.808                   8                   0                   0           0.0829009            0.829009                  10        -7.62578e-08        -3.17946e-09         1.90642e-22            -1396.65            -62.6301         1.01023e-12                 128             145.791                   7                   0                   0           0.0829009            0.829009
+timeout: the monitored command dumped core

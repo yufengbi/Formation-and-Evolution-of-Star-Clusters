@@ -1,0 +1,6 @@
+# ============ 2026-09-17 22:16:44  smoke test A (functional_smoke IC) ============
+# 22:16:44: /Raid6/1b/teamxdli_a/biyufeng/FESC/PeTar/test/validation/make_ic.py --case functional_smoke --output /Raid6/1b/teamxdli_a/biyufeng/petar_sim/smoke/simple/initial.dat
+# 22:16:54: petar.init -f data.init initial.dat
+# 22:16:54: OMP_NUM_THREADS=1 petar -u 1 -t 10 -o 1 -b 1 data.init >output 2>&1
+# 22:17:28: petar.data.process -G 0.00449830997959438 >process.log 2>&1
+# 22:19:15: petar.data.process -G 0.00449830997959438 data.snap.lst
