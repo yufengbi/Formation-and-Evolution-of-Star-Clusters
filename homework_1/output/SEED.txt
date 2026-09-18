@@ -1,0 +1,13 @@
+seed            = 19046
+N               = 1000
+R_half          = 1 pc (Plummer)
+t_end           = 200.0 Myr
+tree_dt         = 0.001953125 Myr
+OMP_NUM_THREADS = 4
+E(0)            = -255.326100
+E(t_end)        = -258.211700
+|dE/E|          = 1.130e-02
+max|Modify|     = 0.0683936
+hard_large_energy 诊断文件数 = 6
+
+复现命令:  SEED_OVERRIDE=19046 bash run_cluster.sh

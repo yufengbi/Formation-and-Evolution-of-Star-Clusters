@@ -5,3 +5,10 @@
 # 编辑器/系统
 .DS_Store
 *~
+
+# 作业 1：动画帧图体积大（18 MB / 201 张），且可由 movie.mp4 或
+# petar.movie 重新生成，故不纳入版本控制
+homework_1/output/data.*.png
+
+# 提交给老师的快照压缩包（内容与 output/data.0~200 重复）
+homework_1/*.tar.gz

@@ -1,0 +1,98 @@
+# 作业 1 — 星团数值模拟 命令记录
+#
+# 环境：WSL Ubuntu 26.04 / gcc & gfortran 15.2 / 16 核
+# PeTar 安装前缀：/root/FESC/petar_install
+# 二进制：petar.omp.avx2（FDPS 8.0 + SDAR 447e，--with-mpi=no + OpenMP）
+
+## 0. 环境准备（一次性）
+
+```bash
+# 加载环境变量（PATH / PYTHONPATH / OMP_STACKSIZE / ulimit）
+source ~/.bashrc
+
+# 若尚未安装 PeTar（本仓库不含 PeTar 源码，见仓库 README 说明）
+cd /root/FESC/PeTar
+./configure --with-mpi=no --prefix=/root/FESC/petar_install \
+            --with-fdps-prefix=/root/FESC/FDPS \
+            --with-sdar-prefix=/root/FESC/sdar
+make -j8 install
+```
+
+## 1. 主流程（脚本化）
+
+```bash
+cd /root/FESC/homework/homework_1
+bash run_cluster.sh          # 随机种子 + 能量守恒自检 + 自动重试
+```
+
+`run_cluster.sh` 内部依次执行（以最终选定的 seed = 19046 为例）：
+
+```bash
+mcluster -N 1000 -R 1 -P 0 -f 1 -C 5 -u 1 -s 19046 -o mc > mc.log 2>&1
+petar.init -v kms2pcmyr -f input mc.dat.10 > init.log 2>&1
+petar.select --optional mpi,omp,avx512,avx2
+OMP_NUM_THREADS=4 OMP_STACKSIZE=128M \
+  petar -u 1 -t 200.0 -o 1.0 -s 0.001953125 input > output 2>&1
+petar.data.gether data > gether.log 2>&1
+petar.data.process -G 0.00449830997959438 data.snap.lst > process.log 2>&1
+petar.movie -i none -t none -m x-y -R 20 \
+  -L data.lagr --rlagr-min 0.01 --rlagr-max 1000 --rlagr-scale log \
+  data.snap.lst > movie.log 2>&1
+```
+
+## 2. 分析与出图
+
+```bash
+cd /root/FESC/homework/homework_1
+python3 analyze.py output
+# 生成 fig_lagr.png / fig_energy.png / fig_energy_compare.png / summary.txt
+```
+
+## 3. 能量守恒自检（生产中的关键一步）
+
+从 PeTar 日志提取每个输出时刻的总能量与 SDAR 累计能量修正 `Modify`：
+
+```bash
+awk '/^Time:/{t=$2} /^Physic:/{print t, $5, $8}' output/output
+#                              $5 = Total E,  $8 = Modify
+```
+
+判据：跑到 t_end、`max|Modify| / |E0| < 1%`、`|dE/E| < 5%`
+（`hard_large_energy` 诊断文件只作警告）。
+
+## 4. 随机种子筛选（排除数值失稳的实现）
+
+```bash
+# 对单个种子跑完整 200 Myr 并给出判定
+cd /tmp && mkdir -p etest_sXX && cd etest_sXX
+mcluster -N 1000 -R 1 -P 0 -f 1 -C 5 -u 1 -s <SEED> -o mc
+petar.init -v kms2pcmyr -f input mc.dat.*
+OMP_NUM_THREADS=4 OMP_STACKSIZE=128M \
+  petar -u 1 -t 200 -o 1.0 -s 0.001953125 input > output 2>&1
+awk '/^Time:/{t=$2} /^Physic:/{printf "%.1f %11.3f %12.4g\n", t, $5, $8}' output
+```
+
+## 5. 从快照重启（验证提交包可用）
+
+```bash
+# 注意：必须加 -i 0，因为 data.par 里记录的是 -i 2（读 ASCII / 写二进制）
+petar -p data.par -i 0 -t 201 data.200
+```
+
+## 运行时间
+
+| 步骤 | 耗时 |
+|---|---|
+| `configure` + `make -j8 install` | 约 6 分钟 |
+| 单次 200 Myr 积分（OMP=4） | 约 3 分钟 |
+| `petar.data.process`（201 个快照） | 约 1 分钟 |
+| `petar.movie`（201 帧） | 约 12 秒 |
+
+## 运行历史
+
+| 时间 | 事件 |
+|---|---|
+| 2026-09-18 10:15 | 首次运行（seed=10），t≈50 Myr 能量失稳，终止 |
+| 2026-09-18 10:30 | 定位为 SDAR 对多重系统的已知限制，加入能量自检 |
+| 2026-09-18 11:00 | 11 个种子筛选，确认成功率约 30% |
+| 2026-09-18 11:14 | 随机种子 19046 通过自检，完成 200 Myr 正式运行 |
