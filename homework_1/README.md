@@ -356,7 +356,7 @@ homework_1/
 主脚本用 `nohup ... &` 在后台运行，检查状态的方法：
 
 ```bash
-cd /root/FESC/homework/homework_1
+cd /root/FESC/Formation-and-Evolution-of-Star-Clusters/homework_1
 
 # ① 进程还在不在（有输出 = 还在跑）
 pgrep -af run_cluster.sh
@@ -395,7 +395,7 @@ kill -0 $(cat run.pid) 2>/dev/null && echo "还在跑" || echo "已结束"
 
 ```bash
 # 需要 PeTar 已安装且 bin 目录在 PATH 中（见 FESC 安装说明）
-cd /root/FESC/homework/homework_1
+cd /root/FESC/Formation-and-Evolution-of-Star-Clusters/homework_1
 
 # 随机种子 + 自动重试（默认）
 bash run_cluster.sh

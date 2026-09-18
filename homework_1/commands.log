@@ -21,7 +21,7 @@ make -j8 install
 ## 1. 主流程（脚本化）
 
 ```bash
-cd /root/FESC/homework/homework_1
+cd /root/FESC/Formation-and-Evolution-of-Star-Clusters/homework_1
 bash run_cluster.sh          # 随机种子 + 能量守恒自检 + 自动重试
 ```
 
@@ -43,7 +43,7 @@ petar.movie -i none -t none -m x-y -R 20 \
 ## 2. 分析与出图
 
 ```bash
-cd /root/FESC/homework/homework_1
+cd /root/FESC/Formation-and-Evolution-of-Star-Clusters/homework_1
 python3 analyze.py output
 # 生成 fig_lagr.png / fig_energy.png / fig_energy_compare.png / summary.txt
 ```
