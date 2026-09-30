@@ -1,0 +1,31 @@
+===== [20:32:33] B_heavy10_run3 : 双质量 1/10 Msun，重星占数量 10% =====
+   [1/40] seed = 7103   20:32:33
+      t_rh = 10.042 Myr  ->  t_end = 20.0 Myr
+      积分中（dt_soft=0, OMP=4）... 20:32:37
+      t=20.0  E0=-3048.39  E=-2403.26  maxModify=256  dump=1
+      ❌ maxModify/|E0| = 0.084 > 0.01
+      证据 -> /root/FESC/Formation-and-Evolution-of-Star-Clusters/homework_2/evidence/B_heavy10_run3_seed7103
+   [2/40] seed = 25879   20:38:00
+      t_rh = 10.042 Myr  ->  t_end = 20.0 Myr
+      积分中（dt_soft=0, OMP=4）... 20:38:04
+run_all.sh: line 222: 235654 Aborted                    OMP_NUM_THREADS="$NTHREAD" OMP_STACKSIZE=256M petar -u 1 -t "$TEND" -o "$T_OUT" -s "$DT_SOFT" -i 1 input > output 2>&1
+      ❌ petar 非正常退出（退出码 134）
+      证据 -> /root/FESC/Formation-and-Evolution-of-Star-Clusters/homework_2/evidence/B_heavy10_run3_seed25879
+   [3/40] seed = 4758   20:38:29
+      t_rh = 10.039 Myr  ->  t_end = 20.0 Myr
+      积分中（dt_soft=0, OMP=4）... 20:38:32
+      ⏱  积分器发散 |Int_err_cum/E| = 0.160735 > 0.1
+      证据 -> /root/FESC/Formation-and-Evolution-of-Star-Clusters/homework_2/evidence/B_heavy10_run3_seed4758
+   [4/40] seed = 9919   20:41:12
+      t_rh = 10.042 Myr  ->  t_end = 20.0 Myr
+      积分中（dt_soft=0, OMP=4）... 20:41:14
+      t=20.0  E0=-3118.64  E=-2637.15  maxModify=119  dump=0
+      ❌ maxModify/|E0| = 0.038 > 0.01
+      证据 -> /root/FESC/Formation-and-Evolution-of-Star-Clusters/homework_2/evidence/B_heavy10_run3_seed9919
+   [5/40] seed = 14122   20:42:42
+      t_rh = 10.042 Myr  ->  t_end = 20.0 Myr
+      积分中（dt_soft=0, OMP=4）... 20:42:45
+      t=20.0  E0=-3200.19  E=-3200.15  maxModify=4.41e-06  dump=0
+      ✅ t=20.0 Myr  |dE/E|=1.437e-05  maxModify/|E0|=1.378e-09  dump=0
+      后处理 ...
+      ✅ 完成 (seed=14122, 共尝试 5 次)   20:44:03

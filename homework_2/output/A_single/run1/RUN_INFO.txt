@@ -1,0 +1,13 @@
+config          = A_single
+title           = 单质量 1 Msun（无黑洞参照）
+seed            = 14159
+N               = 1000
+R_half          = 1 pc (Plummer)
+t_rh            = 13.842 Myr   (由本实初始条件计算)
+t_end           = 27.5 Myr  (= 2.0 t_rh，题目要求 2-3 t_rh)
+output_interval = 0.5 Myr
+dt_soft(hex)    = 0x1p-11
+OMP_NUM_THREADS = 4
+attempts        = 1
+E0 / E(t_end)   = -869.7150 / -869.7155
+max|Modify|     = 3.46633e-08

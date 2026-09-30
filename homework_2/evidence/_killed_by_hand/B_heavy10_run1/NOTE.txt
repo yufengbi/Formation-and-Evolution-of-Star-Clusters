@@ -1,0 +1,3 @@
+卡死（手动中止）：SDAR 时间变换退化，Step_count 触顶 1e6，|Int_err_cum/E| 增长到 0.55 以上
+  T: 2.81493e-05  dT_err/T: 0.769401  ds: 7.30904e-09  ds_init: 0.00406197  |Int_err/E|: 6.30223e-09  |Int_err_cum/E|: 0.0832842  |dE/E|: 4.08486e-16  dE_cum: -87.1693  Etot_sd: -834.937  T_end_flag: 0  Step_count: 1000000  Fix:  none
+  T: 0.000122665  dT_err/T: 0.995128  ds: 4.84225e-10  ds_init: 0.00406197  |Int_err/E|: 8.58601e-09  |Int_err_cum/E|: 0.547864  |dE/E|: 4.84456e-16  dE_cum: -745.291  Etot_sd: -469.338  T_end_flag: 0  Step_count: 1000000  Fix:  none

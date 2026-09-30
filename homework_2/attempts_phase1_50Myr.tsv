@@ -1,0 +1,23 @@
+config	run	seed	verdict	t_end	dEoverE	maxModify	note
+A_single	1	29217	pass	50.000	2.560e-06	1.49784e-07	dump=0
+A_single	2	28927	pass	50.000	9.101e-07	3.27926e-07	dump=0
+A_single	3	17624	pass	50.000	1.512e-06	1.60735e-07	dump=0
+B_heavy10	2	4205	reject	50.000	1.148e+00	1937.21	maxModify/|E0| = 0.623 > 0.01
+B_heavy10	1	856	reject	50.000	7.280e-01	915.786	maxModify/|E0| = 0.292 > 0.01
+B_heavy10	3	4038	watchdog	-	-	-	积分器发散 |Int_err_cum/E| = 0.14567 > 0.1
+B_heavy10	1	24531	reject	50.000	6.005e-01	655.822	诊断文件过多 15
+B_heavy10	2	28684	reject	50.000	2.177e-02	45.7418	诊断文件过多 13
+C_heavy50	1	3536	pass	50.000	1.659e-05	0.000109062	dump=0
+B_heavy10	3	2066	reject	50.000	3.419e-01	345.628	maxModify/|E0| = 0.107 > 0.01
+B_heavy10	1	12994	reject	50.000	5.385e-01	663.138	诊断文件过多 25
+B_heavy10	2	4237	crash	-	-	-	petar 退出码 134
+B_heavy10	3	29015	reject	50.000	3.836e-01	572.01	maxModify/|E0| = 0.178 > 0.01
+B_heavy10	3	3714	watchdog	-	-	-	积分器发散 |Int_err_cum/E| = 0.162099 > 0.1
+B_heavy10	2	4222	reject	50.000	5.657e-01	638.899	maxModify/|E0| = 0.199 > 0.01
+C_heavy50	2	4981	pass	50.000	9.542e-03	134.035	dump=4
+B_heavy10	1	2263	watchdog	-	-	-	积分器发散 |Int_err_cum/E| = 0.185368 > 0.1
+B_heavy10	3	9390	reject	50.000	3.611e-01	787.803	诊断文件过多 11
+C_heavy50	3	25016	crash	-	-	-	petar 退出码 134
+B_heavy10	2	17495	reject	50.000	2.762e-01	415.288	诊断文件过多 15
+B_heavy10	1	11843	watchdog	-	-	-	积分器发散 |Int_err_cum/E| = 0.145768 > 0.1
+B_heavy10	2	25272	watchdog	-	-	-	积分器发散 |Int_err_cum/E| = 0.167715 > 0.1

@@ -1,0 +1,731 @@
+     //==================================\\
+     ||                                  ||
+     || ::::::: ::::::. ::::::. .::::::. ||
+     || ::      ::    : ::    : ::       ||
+     || ::::::  ::    : ::::::'  `:::::. ||
+     || ::      ::::::' ::      `......' ||
+     ||     Framework for Developing     ||
+     ||        Particle Simulator        ||
+     ||     Version 8.0 (2025/09)       ||
+     \\==================================//
+
+       Home   : https://github.com/fdps/fdps 
+       E-mail : fdps-support@mail.jmlab.jp
+       Licence: MIT (see, https://github.com/FDPS/FDPS/blob/master/LICENSE)
+       Note   : Please cite the following papers.
+                - Iwasawa et al. (2016, Publications of the Astronomical Society of Japan, 68, 54)
+                - Namekata et al. (2018, Publications of the Astronomical Society of Japan, 70, 70)
+                - Iwasawa et al. (2020, Publications of the Astronomical Society of Japan, 72, 13)
+
+       Copyright (C) 2015 
+         Masaki Iwasawa, Ataru Tanikawa, Natsuki Hosono,
+         Keigo Nitadori, Takayuki Muranushi, Daisuke Namekata,
+         Kentaro Nomura, Junichiro Makino and many others
+******** FDPS has successfully begun. ********
+
+ ******************************************
+  ██████╗ ███████╗████████╗ █████╗ ██████╗
+  ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗
+  ██████╔╝█████╗     ██║   ███████║██████╔╝
+  ██╔═══╝ ██╔══╝     ██║   ██╔══██║██╔══██╗
+  ██║     ███████╗   ██║   ██║  ██║██║  ██║
+  ╚═╝     ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
+ ******************************************
+Version: 1762e_447e
+============== PeTar ================
+ Online document: (preparing)
+ GitHub page: https://github.com/lwang-astro/PeTar
+ License: MIT
+ Please cite the following papers when you use PeTar for any publications
+    FDPS: see above FPDS Logo message
+    SDAR: Wang L., Nitadori K., Makino J., 2020, MNRAS, 493, 3398
+    PeTar: Wang L., Iwasawa M., Nitadori K., Makino J., 2020, MNRAS, 497, 536
+ Copyright (C) 2017
+    Long Wang, Masaki Iwasawa, Keigo Nitadori, Junichiro Makino and many others
+=====================================
+Use quadrupole moment in tree force calculation
+Use 3rd order tidal tensor method
+Use Pseudoparticle multipole method
+Use 4th-order KDKDK mode for tree step
+Use orbit-dependent neighbor criterion
+Check energy of short-range (hard) integration
+Count isolated particles in hard clusters
+Use SIMD
+Calculate profile
+Use AR TTL method
+Use slowdown Tree method
+Use slowdown timescale criterion
+Print adjust group information
+=====================================
+Input data unit: 1
+End time of simulation: 12
+Output time interval for particle dataset snapshots: 0.5
+Tree timestep (dt_soft): 0
+Data file reading and writing format: 1
+Reading data file name: input
+----- Finish reading main options -----
+----- Finish reading hard options -----
+----- Parallelization information -----
+MPI processors: 1
+OMP threads:    4
+----- Reading file: input -----
+Number of particles = 1000
+Time = 0
+----- Unit set 1: Msun, pc, Myr -----
+gravitational_constant = 0.0044985021514696 pc^3/(Msun*Myr^2)
+----- Parameter list: -----
+ Average mass                      = 5.5
+ Mean inner changeover radius      = 0.0026742806591249
+ Mean outer changeover radius      = 0.026742806591249
+ Minimum neighbor searching radius = 0.032091367909498
+ Velocity dispersion (1D)          = 1.7537225636424
+ Tree time step                    = 0.000244140625
+ Output time step                  = 0.5
+----- Hard Parameter list: -----
+ Mean search group radius:         = 0.0026742806591249
+ Mean group radius                 = 0.0021394245272999
+ Hermite timestep coefficient 4th  = 0.1
+ Hermite timestep coefficient init = 0.001
+ Hermite maximum timestep          = 0.0001220703125
+ AR slowdown maximum timescale     = 0.00048828125
+ AR slowdown perturbation criterion= 0.0001
+ Artificial particle ID offset     = 1001
+ KDTree minimum particles+groups   = 32
+-----  Save parameter files -----
+Save PeTar parameters to file data.par
+Save hard parameters to file data.par.hard
+-----  Finish parameter initialization -----
+
+Time: 0  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:              -0             0             0     -25886.77      25711.19     -51597.96             0             0             0             0             0
+Slowdown:            -0             0             0     -25886.77      25711.19     -51597.96             0             0             0             0             0
+Angular Momentum:  |L|err: 0  |L|err_cum: 0  L: -940.26   -40.33967    344.7371  |L|: 1002.277
+C.M.: mass: 5500 pos: -0.03457449   -0.012786    0.04713169 vel: 0.009890929   -0.009389143    0.03641261
+
+Time: 0.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -3.282446e-07    0.00849719    0.00849719     -25886.76      26279.54      -52166.3  1.353835e-06             0             0 -0.0001212525 -0.0001212525
+Slowdown: -3.282445e-07   0.008497187   0.008497187     -25886.76      26279.54      -52166.3  1.356662e-06             0             0 -0.0001212613 -0.0001212613
+Angular Momentum:  |L|err: 0.007802915  |L|err_cum: 0.007802915  L: -940.2542   -40.34485    344.7375  |L|: 1002.272
+C.M.: mass: 5500 pos: -0.0182535   -0.04789198    0.06376352 vel: -0.005968389   -0.09790674    -0.01503657
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0024874  2.2994e-05    9.14e-05           0  0.00046971   0.0017901  4.0129e-05  2.4555e-05  5.5295e-05  4.6796e-05  1.9559e-06  2.2702e-06  1.5459e-09  5.8154e-06
+   0.0024874  2.3032e-05   9.145e-05           0   0.0004572    0.001737  4.0185e-05  2.4611e-05  5.5365e-05   4.682e-05  1.9882e-06  2.2703e-06  1.5532e-09  5.9255e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  3.3298e-05  0.00040581  4.0162e-05  0.00024606  2.8061e-06  5.7343e-05  0.00080789  0.00010797
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  2.7744e-05   0.0001474  2.1915e-05  0.00011308  5.1198e-07   1.983e-05  9.1599e-05  2.5475e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      977.06      22.939           0      11.125           0     0.26416
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+    0.093506           0           0     0.01416    0.003418           0           0      112.68       0.177  9.3707e+05      9095.3
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       977.06      10.472     0.61572    0.037109
+
+Time: 1  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:     1.15048e-06   -0.02978224   -0.02128505     -25886.79      27298.46     -53185.25  3.004122e-06             0             0 -0.0003620796 -0.0004833321
+Slowdown:  1.150483e-06   -0.02978231   -0.02128512     -25886.79      27298.46     -53185.25  3.070623e-06             0             0 -0.0003620831 -0.0004833444
+Angular Momentum:  |L|err: -0.00406201  |L|err_cum: 0.003740905  L: -940.2563   -40.33898    344.7371  |L|: 1002.274
+C.M.: mass: 5500 pos: -0.01075306   -0.08365037    0.07076427 vel: 0.05287496   -0.05316875    0.06219335
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0039163  5.6287e-05  9.8521e-05           0  0.00074993   0.0028346  9.7235e-05  4.2807e-05  7.2369e-05  6.5796e-05   5.081e-06  2.2581e-06  1.5874e-09  1.1452e-05
+   0.0039164  5.6327e-05  0.00010007           0  0.00073567   0.0027243  9.7308e-05  4.2851e-05  7.2451e-05  6.5821e-05  5.1143e-06  2.2583e-06  1.5974e-09  1.1641e-05
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0   0.0001101  0.00066536  7.8155e-05  0.00044762    7.11e-06  0.00012249   0.0010228  0.00022575
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  4.7949e-05  0.00028727  3.3225e-05   0.0002041  6.9645e-07  2.7313e-05  7.1748e-05  2.9048e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      980.94      19.062           0      9.3674           0     0.21191
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+    0.076904           0           0    0.010742    0.003418           0           0      95.265    0.094971  8.9482e+05       18619
+**** Number of members in clusters (global):
+N_members:            1           2           3           4           5
+Count    :       980.94      9.0439     0.32056   0.0019531  0.00097656
+
+Time: 1.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -8.232808e-07    0.02131208  2.702475e-05     -25886.77      27530.79     -53417.56  4.000517e-06             0             0 -0.0001901705 -0.0006735026
+Slowdown: -8.232808e-07    0.02131208  2.695874e-05     -25886.77      27530.79     -53417.56  4.066528e-06             0             0 -0.0001901637 -0.0006735081
+Angular Momentum:  |L|err: 0.002441045  |L|err_cum: 0.00618195  L: -940.2591   -40.34535    344.7348  |L|: 1002.276
+C.M.: mass: 5500 pos: 0.01730554   -0.04956212    0.07842095 vel: 0.01547214   0.07661163    -0.0650125
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0023602  2.5951e-05  9.3679e-05           0  0.00043846   0.0017007  4.1254e-05  1.9825e-05  4.5292e-05  4.7311e-05  3.4919e-06  2.6108e-06  1.9397e-09  6.5146e-06
+   0.0023602  2.5994e-05  9.3735e-05           0  0.00043007   0.0016421  4.1313e-05   1.986e-05  4.5354e-05  4.7335e-05  3.5244e-06  2.6109e-06   1.947e-09  6.6265e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  3.9947e-05  0.00034337  5.5496e-05  0.00029472  5.7011e-06  8.5412e-05  0.00069336   0.0001189
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.9611e-05  0.00015752  2.0357e-05  0.00012159  6.1279e-07  2.9586e-05  6.1795e-05  1.7325e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      977.75      22.247           0      10.665           0        1.71
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.61621           0           0    0.073242    0.018799           0           0      114.61     0.24707  8.7975e+05       20648
+**** Number of members in clusters (global):
+N_members:            1           2           3           4           5           6
+Count    :       977.75      9.9407     0.58813     0.10059    0.012207    0.022949
+
+Time: 2  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:    3.693538e-07  -0.009561379  -0.009534354     -25886.78      24527.69     -50414.47  5.220965e-06             0             0 -0.0001674629 -0.0008409654
+Slowdown:  3.693537e-07  -0.009561376  -0.009534418     -25886.78      24527.69     -50414.47  5.284677e-06             0             0 -0.0001674775 -0.0008409856
+Angular Momentum:  |L|err: 0.00284404  |L|err_cum: 0.00902599  L: -940.2588   -40.34753    344.7328  |L|: 1002.275
+C.M.: mass: 5500 pos: -0.02327924   -0.02297116    0.04671391 vel: -0.07861477   0.05836687    -0.01173357
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+     0.00278   4.123e-05  0.00010849           0  0.00046705   0.0020285  6.4524e-05  3.4476e-05  6.2019e-05  3.7535e-05   3.618e-06  1.9347e-06  1.5996e-09  8.8156e-06
+   0.0027801  4.1269e-05  0.00010856           0  0.00045792   0.0019569  6.4587e-05  3.4517e-05   6.209e-05  3.7562e-05   3.651e-06  1.9348e-06  1.6094e-09  8.9488e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  3.6311e-05  0.00046106  5.6149e-05  0.00032018  5.1794e-06  0.00010741   0.0008281  0.00014518
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.1204e-05  0.00018459   3.137e-05  0.00013267  6.7418e-07  3.0925e-05  4.6517e-05  1.8743e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      981.04      18.964           0      9.2703           0      3.0171
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+      1.0728           0           0     0.10767    0.025635           0           0      96.933       0.229  8.7874e+05       20767
+**** Number of members in clusters (global):
+N_members:            1           2           3           4           5
+Count    :       981.04      8.8713       0.375    0.023438  0.00048828
+
+Time: 2.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -1.532223e-07   0.003966432  -0.005567922     -25886.77      26946.53     -52833.31  7.065194e-06             0             0  -7.14406e-05  -0.000912406
+Slowdown: -1.532225e-07   0.003966436  -0.005567982     -25886.77      26946.53     -52833.31  7.125381e-06             0             0 -7.140417e-05 -0.0009123897
+Angular Momentum:  |L|err: 0.005270218  |L|err_cum: 0.01429621  L: -940.2598   -40.35396    344.7375  |L|: 1002.278
+C.M.: mass: 5500 pos: -0.03632583   -0.02435432    0.02315668 vel: 0.06409393   -0.02012752    -0.05856163
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0022622  3.5541e-05  9.1157e-05           0  0.00038452   0.0016198  4.5147e-05   3.428e-05  4.6582e-05  4.0739e-05  2.8201e-06  2.2823e-06  1.7439e-09  6.0232e-06
+   0.0022623  3.5583e-05  9.1204e-05           0  0.00038004   0.0015753  4.5202e-05  3.4316e-05  4.6647e-05  4.0762e-05  2.8577e-06  2.2824e-06  1.7537e-09  6.1371e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  3.0867e-05  0.00037793  5.2466e-05   0.0002994  3.3305e-06  0.00010495  0.00061391  9.0662e-05
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.1752e-05  0.00014608  2.5698e-05  0.00012523  6.2437e-07  2.4212e-05  3.4892e-05  9.3546e-06
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      980.53      19.466           0      9.5264           0      1.9976
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.70044           0           0    0.068604    0.016602           0           0      98.635     0.17407  8.8241e+05       20177
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       980.53      9.1357     0.36768    0.022949
+
+Time: 3  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -2.347113e-07   0.006075916  0.0005079945     -25886.77      25619.34     -51506.11  7.868267e-06             0             0 -7.408351e-06 -0.0009198144
+Slowdown: -2.347111e-07   0.006075911  0.0005079289     -25886.77      25619.34     -51506.11  7.933843e-06             0             0 -7.400137e-06 -0.0009197899
+Angular Momentum:  |L|err: 0.001901409  |L|err_cum: 0.01619762  L: -940.2622   -40.35543    344.734  |L|: 1002.279
+C.M.: mass: 5500 pos: -0.02611842   -0.02027492    0.008070326 vel: -0.03602914   0.02433633    0.008480438
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0021808  3.1101e-05  7.5511e-05           0  0.00040903   0.0015608  4.1684e-05  3.2725e-05  4.0565e-05  3.5926e-05  2.7158e-06  2.7858e-06  1.5435e-09  6.0389e-06
+   0.0021808  3.1139e-05  7.5557e-05           0  0.00040242   0.0015074  4.1739e-05   3.276e-05  4.0625e-05  3.5952e-05  2.7483e-06  2.7859e-06  1.5508e-09   6.136e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  2.1696e-05  0.00036391  4.4416e-05  0.00035402  3.0356e-06  9.2339e-05  0.00051618  0.00010851
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0   1.406e-05  0.00015938  2.9993e-05  0.00011957  5.6623e-07  1.9271e-05  4.8385e-05   1.361e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      983.09      16.908           0      8.2266           0     0.14111
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+    0.052734           0           0   0.0041504   0.0012207           0           0      82.714    0.097656  8.7669e+05       20383
+**** Number of members in clusters (global):
+N_members:            1           2           3           4           5
+Count    :       983.09      7.8218     0.37207    0.015625     0.01709
+
+Time: 3.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:    6.727038e-08  -0.001741413  -0.001233418     -25886.77      24778.86     -50665.63  8.066485e-06             0             0  -1.16386e-05  -0.000931453
+Slowdown:  6.727058e-08  -0.001741418  -0.001233489     -25886.77      24778.86     -50665.63  8.137306e-06             0             0 -1.166286e-05 -0.0009314527
+Angular Momentum:  |L|err: -0.001512887  |L|err_cum: 0.01468473  L: -940.2615   -40.35296    344.731  |L|: 1002.277
+C.M.: mass: 5500 pos: -0.02649843   0.02517477    0.006314236 vel: 0.01904048   0.1111087    -0.01367657
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0029644  5.3121e-05   7.923e-05           0  0.00066612    0.001968  8.1503e-05  6.0557e-05  6.4831e-05  5.2637e-05  7.0492e-06   2.385e-06   2.561e-09  1.1254e-05
+   0.0029644  5.3178e-05  7.9285e-05           0  0.00065799   0.0018918  8.1571e-05  6.0596e-05  6.4903e-05  5.2659e-05  7.0825e-06  2.3852e-06  2.5708e-09  1.1353e-05
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  4.0887e-05  0.00053029  6.9632e-05  0.00042631  4.9042e-06  8.6222e-05   0.0006057  0.00015416
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.9726e-05  0.00025524   3.604e-05  0.00026512  6.3187e-07  2.5031e-05   4.529e-05  1.6673e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      984.46      15.541           0      7.6399           0     0.39014
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.13452           0           0    0.013184    0.003418           0           0      74.019    0.093018  8.8283e+05       20382
+**** Number of members in clusters (global):
+N_members:            1           2           3
+Count    :       984.46      7.3787     0.26123
+
+Time: 4  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:    1.495853e-06   -0.03872285   -0.03995627     -25886.81      28123.06     -54009.87  8.608475e-06             0             0 -1.614863e-05 -0.0009476016
+Slowdown:  1.495853e-06   -0.03872285   -0.03995634     -25886.81      28123.06     -54009.87  8.676426e-06             0             0 -1.541554e-05 -0.0009468683
+Angular Momentum:  |L|err: 0.00341171  |L|err_cum: 0.01809644  L: -940.2598   -40.35341    344.7253  |L|: 1002.274
+C.M.: mass: 5500 pos: 0.007578931   0.07144998    -0.01099717 vel: 0.02041869   0.02955684    -0.003257965
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+    0.002662  3.3651e-05   8.264e-05           0  0.00047369   0.0019441  7.8758e-05  3.0221e-05  5.1187e-05   3.907e-05  3.6727e-06  2.4553e-06  2.1011e-09  1.0444e-05
+   0.0026621  3.3691e-05  8.2712e-05           0  0.00046765   0.0018598  7.8822e-05  3.0264e-05  5.1262e-05  3.9093e-05   3.706e-06  2.4555e-06  2.1086e-09  1.0589e-05
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  3.1903e-05  0.00040874  5.9473e-05  0.00031072  3.5715e-06  8.5001e-05  0.00082038  0.00017084
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.8509e-05  0.00019433  3.2743e-05  0.00014002  7.1248e-07  2.2216e-05  4.6873e-05  1.2649e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      982.37      17.629           0      8.6248           0     0.31738
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.11768           0           0    0.011963   0.0036621           0           0      83.255     0.10083  8.8972e+05       18638
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       982.37      8.2522     0.36523   0.0073242
+
+Time: 4.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:    -7.26172e-07    0.01879826   -0.02115801     -25886.79      26722.89     -52609.68   9.32464e-06             0             0 -2.636829e-05 -0.0009739699
+Slowdown: -7.261723e-07    0.01879827   -0.02115807     -25886.79      26722.89     -52609.68  9.383012e-06             0             0  -2.63906e-05 -0.0009732589
+Angular Momentum:  |L|err: 0.004354721  |L|err_cum: 0.02245116  L: -940.2676   -40.35356    344.7211  |L|: 1002.28
+C.M.: mass: 5500 pos: -0.001723017   0.06362932    -0.01379031 vel: -0.05103621   -0.05054198    0.03662307
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0029491  5.2327e-05  0.00010022           0  0.00049279   0.0021616  9.5007e-05  4.7447e-05  7.1438e-05  3.8134e-05  4.1343e-06  2.3405e-06  8.9746e-09  8.1346e-06
+   0.0029492  5.2382e-05  0.00010029           0  0.00047992   0.0020475  9.5102e-05  4.7486e-05  7.1532e-05  3.8164e-05   4.184e-06  2.3405e-06  8.9893e-09  8.2734e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0   4.263e-05  0.00042377  5.4063e-05  0.00033438  3.0735e-06  8.9988e-05  0.00093695  0.00023015
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0   1.846e-05  0.00017058   3.042e-05  0.00013991  9.0631e-07  2.2161e-05  7.7851e-05  2.6216e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      980.34      19.661           0      9.6333           0     0.33716
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.10596           0           0    0.013428   0.0041504           0           0      97.104     0.11304  9.0276e+05       13256
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       980.34      9.2451     0.38232   0.0058594
+
+Time: 5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -2.112663e-07   0.005469004   -0.01568901     -25886.78      25533.18     -51419.97  9.793356e-06             0             0 -1.641535e-05 -0.0009903853
+Slowdown: -2.112663e-07   0.005469006   -0.01568906     -25886.78      25533.18     -51419.97    9.8495e-06             0             0 -1.641994e-05 -0.0009896788
+Angular Momentum:  |L|err: 0.0002648388  |L|err_cum: 0.022716  L: -940.2656   -40.35531    344.7216  |L|: 1002.278
+C.M.: mass: 5500 pos: -0.02859082   0.0466589    0.0001900227 vel: -0.07248358   -0.006104441    0.03479644
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0017133  2.1971e-05  7.3278e-05           0  0.00030957   0.0012301  1.8848e-05  1.7466e-05   3.174e-05  2.4935e-05  1.8142e-06  2.0497e-06  1.6877e-09  4.5253e-06
+   0.0017134  2.2008e-05  7.3334e-05           0  0.00030583   0.0012089  1.8906e-05    1.75e-05  3.1793e-05  2.4956e-05  1.8466e-06  2.0498e-06  1.6975e-09  4.6299e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0    1.51e-05   0.0002273  3.1925e-05  0.00017642  2.2727e-06  5.3327e-05  0.00063171  4.4108e-05
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  4.9525e-06  0.00010458    1.82e-05  7.3413e-05  3.0223e-07  1.6699e-05  7.0965e-05  7.9063e-06
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      983.12      16.884           0      8.2432           0     0.53076
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.17188           0           0    0.015625   0.0039062           0           0      84.679     0.12744  9.4418e+05      8303.7
+**** Number of members in clusters (global):
+N_members:            1           2           3
+Count    :       983.12      7.8457     0.39746
+
+Time: 5.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:    6.574476e-07   -0.01701922   -0.03270822      -25886.8      26485.59     -52372.39  1.084422e-05             0             0 -2.077145e-05  -0.001011157
+Slowdown:  6.574484e-07   -0.01701924    -0.0327083      -25886.8      26485.59     -52372.39  1.091981e-05             0             0 -2.077488e-05  -0.001010454
+Angular Momentum:  |L|err: 0.0005601895  |L|err_cum: 0.02327619  L: -940.2678   -40.35546    344.7218  |L|: 1002.28
+C.M.: mass: 5500 pos: -0.03847504   0.04844205    0.0104684 vel: -0.05483555   0.06008504    -0.02799969
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0032694  4.6244e-05  9.7034e-05           0  0.00062981   0.0023196  9.2344e-05  4.5168e-05  7.2167e-05  5.2873e-05   3.655e-06  2.2868e-06   1.426e-09  1.2575e-05
+   0.0032694  4.6311e-05  9.7082e-05           0   0.0006151   0.0022275  9.2416e-05  4.5206e-05  7.2255e-05  5.2897e-05  3.6989e-06  2.2869e-06  1.4333e-09  1.2712e-05
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  3.9422e-05  0.00055165  6.9399e-05   0.0004278  6.2548e-06  0.00010308  0.00086929  0.00018683
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  2.2699e-05  0.00021151  3.0073e-05  0.00021362  4.0808e-07  2.6802e-05  9.3787e-05  2.9843e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      980.98      19.023           0      9.2207           0     0.19727
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+    0.063965           0           0   0.0087891    0.001709           0           0      92.855      0.1438  9.3454e+05       11438
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       980.98      8.6804     0.49902     0.04126
+
+Time: 6  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -3.331401e-08  0.0008623932   -0.03184583      -25886.8      25817.51     -51704.31  1.172822e-05             0             0 -1.422105e-05  -0.001025378
+Slowdown: -3.331411e-08  0.0008623958    -0.0318459      -25886.8      25817.51     -51704.31  1.180116e-05             0             0 -1.421768e-05  -0.001024671
+Angular Momentum:  |L|err: -0.003216232  |L|err_cum: 0.02005996  L: -940.2604   -40.34709    344.7184  |L|: 1002.272
+C.M.: mass: 5500 pos: -0.04645845   0.05905009    0.01740296 vel: -0.03229237   -0.01247522    0.01212302
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0030333   4.652e-05  9.7855e-05           0  0.00052793   0.0022061  6.7518e-05  4.3887e-05   6.314e-05  4.2184e-05  8.0786e-06    2.43e-06  1.8638e-09   1.827e-05
+   0.0030333  4.6559e-05  9.7942e-05           0  0.00051829   0.0021229  6.7583e-05   4.393e-05  6.3209e-05  4.2207e-05  8.1118e-06  2.4302e-06  1.8735e-09  1.8391e-05
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  4.1249e-05  0.00054166  7.3116e-05  0.00042194  5.0714e-06  0.00010958  0.00078992  0.00016824
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.9486e-05  0.00020162  3.2632e-05  0.00014655  6.4303e-07  3.3882e-05  6.7909e-05  1.9727e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      981.94      18.061           0      8.7354           0     0.33325
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.12646           0           0     0.01001   0.0029297           0           0      91.713     0.11597  9.0926e+05       17372
+**** Number of members in clusters (global):
+N_members:            1           2           3           4           5           6
+Count    :       981.94      8.2449      0.4126    0.059814    0.014648    0.003418
+
+Time: 6.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -1.171508e-07   0.003032659   -0.02881317      -25886.8      26410.47     -52297.27  1.204677e-05             0             0  -2.68019e-06  -0.001028058
+Slowdown: -1.171508e-07   0.003032659   -0.02881324      -25886.8      26410.47     -52297.27  1.211967e-05             0             0 -2.615685e-06  -0.001027287
+Angular Momentum:  |L|err: -0.005565631  |L|err_cum: 0.01449433  L: -940.2616   -40.34941    344.7265  |L|: 1002.276
+C.M.: mass: 5500 pos: -0.03925671   0.01429101    0.02079411 vel: -0.02664984   -0.06697927    0.04645828
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0023736  3.3767e-05  8.4595e-05           0  0.00039977    0.001745  6.3202e-05  3.6236e-05  4.3839e-05  3.0499e-05  2.8074e-06  2.5147e-06  2.2773e-09  7.2949e-06
+   0.0023737  3.3805e-05  8.4639e-05           0  0.00039072    0.001676  6.3258e-05  3.6337e-05  4.3935e-05   3.052e-05  2.8393e-06  2.5149e-06  2.2871e-09  7.3911e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  2.7893e-05  0.00033469  3.9191e-05  0.00023393  2.9512e-06   8.754e-05  0.00083299  0.00013988
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.6169e-05  0.00012664  1.9787e-05   0.0001033  3.0997e-07   2.929e-05  8.1491e-05  1.8544e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      981.11      18.891           0      9.2178           0     0.18286
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+    0.062256           0           0   0.0080566   0.0021973           0           0      92.634      0.1123  9.4554e+05       10924
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       981.11      8.7686     0.44336   0.0058594
+
+Time: 7  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:    1.151908e-06   -0.02981923    -0.0586324     -25886.83      24391.95     -50278.78   1.24876e-05             0             0 -1.169383e-05  -0.001039752
+Slowdown:  1.151908e-06   -0.02981923   -0.05863247     -25886.83      24391.95     -50278.78    1.2559e-05             0             0 -1.169324e-05   -0.00103898
+Angular Momentum:  |L|err: 0.00452877  |L|err_cum: 0.0190231  L: -940.2599   -40.35286    344.7234  |L|: 1002.273
+C.M.: mass: 5500 pos: -0.06749974   -0.003247634    0.02915952 vel: -0.04751595   -0.0008441601    -0.01790551
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0026789  4.0337e-05  8.6109e-05           0  0.00045836   0.0019427  6.6094e-05  4.7893e-05  6.5033e-05  4.3983e-05  2.9827e-06  2.2608e-06  1.7466e-09  8.4395e-06
+    0.002679  4.0374e-05  8.6154e-05           0  0.00044464   0.0018692  6.6184e-05  4.7943e-05  6.5093e-05  4.4005e-05  3.0152e-06  2.2609e-06  1.7539e-09  8.5458e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  3.7028e-05  0.00039854  4.2947e-05  0.00029834  2.8891e-06  8.2584e-05  0.00088479  0.00014865
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.1339e-05  0.00014027  2.9589e-05   0.0001212  4.3034e-07  1.9562e-05  9.9028e-05  2.7855e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      982.29      17.706           0      8.7456           0     0.39331
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.12012           0           0    0.010498   0.0026855           0           0      86.507    0.067627  9.2761e+05       14151
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       982.29      8.5344     0.20728   0.0039062
+
+Time: 7.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:     1.47711e-07   -0.00382377   -0.06245617     -25886.83      28816.39     -54703.22  1.286379e-05             0             0 -1.470712e-05  -0.001054459
+Slowdown:  1.477111e-07  -0.003823773   -0.06245625     -25886.83      28816.39     -54703.22  1.293783e-05             0             0 -1.472674e-05  -0.001053707
+Angular Momentum:  |L|err: -0.0004896754  |L|err_cum: 0.01853342  L: -940.2605   -40.35129    344.7226  |L|: 1002.273
+C.M.: mass: 5500 pos: -0.07432195   0.03301467    0.00502508 vel: 0.03905291   0.03242214    0.02147431
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0026338  3.4161e-05  8.8327e-05           0  0.00040558    0.002015  5.7724e-05  3.2753e-05  4.9197e-05  3.2862e-05   2.849e-06  2.7696e-06  3.1406e-09  8.9825e-06
+   0.0026338    3.42e-05  8.8388e-05           0   0.0003936   0.0019285  5.7795e-05  3.2804e-05  4.9269e-05  3.2883e-05  2.8816e-06  2.7698e-06  3.1626e-09  9.1092e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  2.8369e-05   0.0003486  4.4089e-05  0.00028004  2.9528e-06   0.0001055   0.0009718  0.00017488
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.3392e-05  0.00014536  2.1026e-05  0.00010499  5.4187e-07  2.2732e-05   6.283e-05  2.4402e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+       982.7      17.302           0      8.4414           0     0.22729
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+    0.077393           0           0   0.0092773   0.0024414           0           0      86.894    0.088623  8.9704e+05       18628
+**** Number of members in clusters (global):
+N_members:            1           2           3           4           5
+Count    :        982.7      8.0813      0.3147    0.032227    0.013184
+
+Time: 8  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:    1.668549e-08 -0.0004319343   -0.06288811     -25886.83      25391.45     -51278.28  1.347581e-05             0             0 -4.726597e-06  -0.001059185
+Slowdown:   1.66855e-08 -0.0004319348   -0.06288818     -25886.83      25391.45     -51278.28  1.355035e-05             0             0 -4.714009e-06  -0.001058421
+Angular Momentum:  |L|err: 0.01068482  |L|err_cum: 0.02921824  L: -940.2676   -40.34639    344.7097  |L|: 1002.275
+C.M.: mass: 5500 pos: -0.02830673   0.06514655    0.004704803 vel: 0.08556211   0.04080234    -0.02926134
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0023136  2.6756e-05  8.3752e-05           0  0.00037615   0.0017508  4.1954e-05  1.8515e-05  3.9496e-05   2.931e-05  2.3166e-06  2.1798e-06  1.9397e-09  7.6005e-06
+   0.0023137  2.6794e-05  8.3814e-05           0  0.00037087   0.0016889  4.2011e-05  1.8558e-05  3.9555e-05  2.9331e-05  2.3493e-06  2.1799e-06   1.947e-09   7.708e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.7769e-05  0.00029484  4.3832e-05  0.00022957  3.4444e-06  8.7413e-05  0.00088754  0.00012562
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.2905e-05  0.00012329  2.3984e-05  0.00011007  1.5741e-06   1.912e-05  6.7595e-05  1.1021e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      980.72      19.283           0      9.4377           0     0.27612
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+      0.1001           0           0    0.010498   0.0029297           0           0       98.04    0.092285  8.9092e+05       19245
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       980.72      9.0706     0.32715    0.040039
+
+Time: 8.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -1.087589e-06    0.02815419   -0.03473391      -25886.8      26272.87     -52159.67  1.367245e-05             0             0 -1.488141e-05  -0.001074067
+Slowdown:  -1.08759e-06    0.02815424   -0.03473394      -25886.8      26272.87     -52159.67  1.370385e-05             0             0 -1.487869e-05    -0.0010733
+Angular Momentum:  |L|err: 0.004899682  |L|err_cum: 0.03411793  L: -940.2664   -40.35132    344.7057  |L|: 1002.273
+C.M.: mass: 5500 pos: -0.002211355   0.06264198    -0.031376 vel: 0.02604912   0.04417562    -0.02333914
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0021535   2.975e-05  7.8554e-05           0  0.00035365   0.0015931  5.1415e-05  3.2307e-05  3.6747e-05  3.0679e-05  3.9221e-06  2.7265e-06  2.2112e-09  6.4993e-06
+   0.0021535  2.9788e-05  7.8599e-05           0  0.00034451   0.0015343  5.1472e-05  3.2343e-05  3.6804e-05    3.07e-05  3.9605e-06  2.7266e-06  2.2185e-09  6.6233e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  2.0647e-05  0.00030179  3.2933e-05  0.00021094  3.1642e-06  7.6983e-05  0.00077859  0.00011952
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  9.3103e-06  0.00010864  1.8304e-05  0.00010065  6.9841e-07  1.7406e-05   6.515e-05  1.8878e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      981.65      18.352           0      8.9932           0     0.12207
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+    0.043213           0           0   0.0065918    0.001709           0           0      90.533    0.093994  8.7606e+05       24433
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       981.65      8.6309     0.35938   0.0029297
+
+Time: 9  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:    4.205192e-07    -0.0108859   -0.04561981     -25886.81      22487.39      -48374.2  1.443932e-05             0             0 -2.204305e-05   -0.00109611
+Slowdown:  4.205192e-07    -0.0108859   -0.04561985     -25886.81      22487.39      -48374.2  1.447098e-05             0             0 -2.203138e-05  -0.001095331
+Angular Momentum:  |L|err: -0.002654758  |L|err_cum: 0.03146317  L: -940.2643   -40.35119    344.7081  |L|: 1002.272
+C.M.: mass: 5500 pos: -0.01047494   0.0597531    -0.02564329 vel: 0.06117241   -0.02985862    0.04670641
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0018334  2.3675e-05  6.9468e-05           0  0.00029925   0.0013822   2.788e-05  1.7641e-05  2.6422e-05  2.2755e-05  1.4509e-06  2.2492e-06  1.9763e-09  3.7166e-06
+   0.0018334  2.3713e-05  6.9513e-05           0  0.00029464   0.0013416  2.7934e-05  1.7676e-05  2.6476e-05  2.2776e-05  1.4831e-06  2.2495e-06  1.9958e-09  3.8155e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.3694e-05  0.00023038  3.3447e-05  0.00018186  2.8938e-06  8.0277e-05  0.00070509  8.2715e-05
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  6.8334e-06  9.7119e-05  1.6219e-05  7.7283e-05  6.2769e-07   1.595e-05  6.2269e-05  9.6978e-06
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      982.85      17.149           0      8.3494           0     0.37695
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.13135           0           0    0.019531   0.0046387           0           0      83.916     0.12598  8.7631e+05       25488
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       982.85      7.9231     0.40234    0.023926
+
+Time: 9.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -4.281747e-07    0.01108407   -0.03453574      -25886.8      26427.71     -52314.52   1.45247e-05             0             0 -1.532832e-05  -0.001111438
+Slowdown: -4.281747e-07    0.01108407   -0.03453577      -25886.8      26427.71     -52314.52  1.455644e-05             0             0 -1.512172e-05  -0.001110453
+Angular Momentum:  |L|err: -0.00134236  |L|err_cum: 0.03012081  L: -940.2695   -40.35069    344.7107  |L|: 1002.278
+C.M.: mass: 5500 pos: 0.008901666   0.07001197    -0.009092687 vel: 0.03075689   -0.01362232    0.03272792
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0019742  2.3986e-05  6.9754e-05           0  0.00033735   0.0014648  3.6335e-05  1.6546e-05  3.9542e-05  3.0764e-05  1.6659e-06  2.0417e-06  1.7992e-08  4.7344e-06
+   0.0019742  2.4023e-05  6.9802e-05           0  0.00033165   0.0014152   3.639e-05  1.6587e-05  3.9598e-05  3.0786e-05   1.698e-06  2.0418e-06  1.8009e-08  4.8197e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.4912e-05  0.00026674  3.1591e-05  0.00020736  3.2732e-06  7.0853e-05  0.00072016  0.00010067
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  6.1895e-06  0.00011992  1.8982e-05    8.17e-05  5.4458e-07   1.363e-05  7.2633e-05  1.1829e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      983.61      16.394           0       8.042           0     0.49438
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.18262           0           0    0.026367   0.0075684           0           0      86.618     0.10718  9.0788e+05       18005
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       983.61      7.7383     0.29785   0.0058594
+
+Time: 10  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:    2.911249e-07  -0.007536294   -0.04207204     -25886.81      26947.81     -52834.62  1.466902e-05             0             0 -1.738539e-05  -0.001128824
+Slowdown:   2.91125e-07  -0.007536296   -0.04207207     -25886.81      26947.81     -52834.62  1.470263e-05             0             0 -1.739738e-05   -0.00112785
+Angular Momentum:  |L|err: 0.001141539  |L|err_cum: 0.03126235  L: -940.2689   -40.35518    344.7114  |L|: 1002.278
+C.M.: mass: 5500 pos: 0.03222832   0.07577972    0.009367121 vel: -0.01703382   -0.01654043    0.02193051
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0022461  3.0836e-05  8.5846e-05           0  0.00038016   0.0016579  4.4662e-05  2.9109e-05  4.4522e-05  3.3837e-05  2.2058e-06  2.4349e-06  1.8884e-09  6.7402e-06
+   0.0022462  3.0882e-05  8.5891e-05           0  0.00037373   0.0015899  4.4729e-05  2.9145e-05  4.4588e-05  3.3859e-05  2.2435e-06  2.4351e-06  1.8958e-09  6.8728e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.8504e-05  0.00029765  4.1185e-05  0.00025132  4.2042e-06  7.4915e-05  0.00077193   0.0001383
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  6.7384e-06  0.00012497    2.07e-05  0.00010022  3.4866e-07  2.0095e-05  7.9527e-05  1.3258e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      981.08      18.921           0      9.2319           0     0.38379
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.14087           0           0    0.026611   0.0053711           0           0      95.564     0.15186  9.4668e+05       10157
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       981.08      8.7817     0.44336   0.0068359
+
+Time: 10.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -8.013375e-08   0.002074407   -0.03999763     -25886.81      25879.49     -51766.29  1.539904e-05             0             0 -1.023139e-05  -0.001139055
+Slowdown: -8.013374e-08   0.002074407   -0.03999766     -25886.81      25879.49     -51766.29  1.543298e-05             0             0 -1.023223e-05  -0.001138082
+Angular Momentum:  |L|err: -0.002741651  |L|err_cum: 0.0285207  L: -940.2601   -40.35121    344.711  |L|: 1002.269
+C.M.: mass: 5500 pos: 0.01232818   0.06282115    0.009596973 vel: -0.01524991   -0.006618605    -0.03203201
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0022224  2.6001e-05  8.6883e-05           0  0.00038155   0.0016446  4.4969e-05  1.9386e-05  4.0687e-05  3.2717e-05  2.5257e-06  2.3264e-06  1.6755e-09  4.7424e-06
+   0.0022225  2.6039e-05   8.693e-05           0  0.00037391   0.0015857  4.5027e-05  1.9422e-05  4.0769e-05  3.2756e-05  2.5586e-06  2.3265e-06  1.6829e-09  4.8546e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0   2.476e-05  0.00028302  3.9942e-05  0.00024001  3.5542e-06  7.1965e-05  0.00081019  0.00011989
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  9.6761e-06  0.00012415  1.9178e-05  0.00010344  4.5103e-07  1.9873e-05  7.5834e-05   1.569e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      981.07       18.93           0      9.1406           0     0.46411
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.16992           0           0    0.032471   0.0068359           0           0      96.856     0.18213  9.4042e+05      9677.5
+**** Number of members in clusters (global):
+N_members:            1           2           3           4           5           6
+Count    :       981.07      8.6011      0.4668    0.044434    0.020508   0.0078125
+
+Time: 11  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -1.136354e-08  0.0002941658   -0.03970346     -25886.81      25510.95     -51397.75  1.531727e-05             0             0 -1.359924e-05  -0.001152654
+Slowdown: -1.136354e-08  0.0002941658    -0.0397035     -25886.81      25510.95     -51397.75  1.535122e-05             0             0 -1.362917e-05  -0.001151712
+Angular Momentum:  |L|err: -0.004241095  |L|err_cum: 0.0242796  L: -940.2599   -40.34929    344.7148  |L|: 1002.27
+C.M.: mass: 5500 pos: 0.02166796   0.06219341    -0.02054651 vel: 0.06308082   0.05886023    0.03375639
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0021097  2.8764e-05  7.3606e-05           0  0.00035373   0.0015635  4.1938e-05  2.6697e-05  3.9917e-05  2.6757e-05  3.4045e-06   2.935e-06  3.1262e-09  6.0398e-06
+   0.0021097  2.8803e-05  7.3651e-05           0  0.00034738   0.0015101   4.201e-05  2.6756e-05   3.997e-05  2.6778e-05  3.4417e-06  2.9351e-06   3.136e-09  6.1362e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  1.7027e-05  0.00030933  4.2384e-05  0.00021699  2.9769e-06  8.1514e-05  0.00072863  0.00010837
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  8.5344e-06  0.00012682  1.8239e-05  9.2221e-05   6.513e-07   1.602e-05  6.6818e-05   1.305e-05
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      983.07      16.931           0      8.2458           0     0.52881
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.19019           0           0    0.029785   0.0073242           0           0      85.486     0.12988  9.1991e+05       13909
+**** Number of members in clusters (global):
+N_members:            1           2           3           4
+Count    :       983.07      7.8347      0.3833    0.027832
+
+Time: 11.5  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:   -4.340852e-07    0.01123708   -0.02846639      -25886.8      23945.35     -49832.14  1.598055e-05             0             0 -9.556712e-06  -0.001162211
+Slowdown: -4.340858e-07    0.01123709   -0.02846641      -25886.8      23945.35     -49832.14  1.599852e-05             0             0 -9.611257e-06  -0.001161323
+Angular Momentum:  |L|err: -0.0004800823  |L|err_cum: 0.02379952  L: -940.2588   -40.34756    344.7147  |L|: 1002.269
+C.M.: mass: 5500 pos: 0.03270862   0.07846655    -0.01345499 vel: 0.07335797   0.01758005    -0.06743482
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+   0.0015315  1.7249e-05  6.8185e-05           0  0.00026808   0.0011259  1.2718e-05  7.2528e-06  2.4153e-05  2.1897e-05  1.0854e-06  1.8771e-06  2.1624e-09   3.123e-06
+   0.0015316  1.7286e-05  6.8236e-05           0  0.00026463   0.0011074   1.277e-05  7.2864e-06  2.4204e-05  2.1919e-05  1.1175e-06  1.8772e-06  2.1721e-09  3.2053e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0   1.333e-05  0.00019359  2.6534e-05  0.00017055  2.4467e-06  6.1247e-05  0.00057637  3.8479e-05
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  3.7288e-06   8.388e-05  1.6982e-05  6.9455e-05  5.0161e-07  1.3224e-05   6.146e-05  7.2718e-06
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      980.63      19.368           0      9.5032           0     0.44678
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.15112           0           0    0.027832   0.0053711           0           0      99.774     0.11768  9.1832e+05       14190
+**** Number of members in clusters (global):
+N_members:            1           2           3           4           5
+Count    :       980.63      9.1726     0.30859    0.012695   0.0092773
+
+Time: 12  N_real(loc): 1000  N_real(glb): 1000  N_all(loc): 1000  N_all(glb): 1000  N_remove(glb): 0  N_escape(glb): 0
+Energy:     Error/Total         Error     Error_cum         Total       Kinetic     Potential        Modify  Modify_group Modify_single      Error_PP  Error_PP_cum
+Physic:    4.355971e-07   -0.01127622   -0.03974261     -25886.81      25438.01     -51324.82  1.588376e-05             0             0 -1.595968e-05  -0.001178171
+Slowdown:  4.355972e-07   -0.01127622   -0.03974263     -25886.81      25438.01     -51324.82  1.590375e-05             0             0 -1.595995e-05  -0.001177283
+Angular Momentum:  |L|err: 0.004195987  |L|err_cum: 0.02799551  L: -940.2612   -40.35531    344.7139  |L|: 1002.271
+C.M.: mass: 5500 pos: 0.06196283   0.1136383    -0.04502349 vel: 0.03737833   0.02765818    -0.04690901
+Tree step number: 4096
+**** Wallclock time per step (local): [Min/Max]
+ Total       PP_single   PP_cluster  PP_cross    Tree_NB     Tree_Force  Force_corr  Kick        FindCluster CreateGroup MPI_comm    Output      Status      Other      
+    0.001416  1.5325e-05  6.3337e-05           0  0.00025331   0.0010318   1.008e-05  6.4559e-06  2.1286e-05  1.8821e-05   1.527e-06  2.3782e-06  2.0425e-09  2.8986e-06
+    0.001416  1.5361e-05   6.338e-05           0  0.00025072   0.0010214  1.0131e-05  6.4982e-06  2.1335e-05  1.8841e-05  1.5592e-06  2.3783e-06   2.062e-09  2.9827e-06
+**** FDPS tree soft force time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  7.5339e-06  0.00018775  2.7465e-05  0.00014706  2.6057e-06  5.7162e-05   0.0005343  2.2274e-05
+**** Tree neighbor time profile (local):
+ Sample_ptcl Domain_deco Ex_ptcl     SetRootCell Make_LT     Make_LET    Make_GT     Make_Group  Make_I_list Calc_force  Write_back 
+           0           0           0  3.9075e-06  8.4378e-05  1.5183e-05    6.59e-05  4.7173e-07  1.4215e-05  5.1869e-05  5.5219e-06
+**** Number per step (global):
+ PP_single   PP_cluster  PP_cross    Cluster     Cross       AR_step_sum
+      982.79      17.209           0      8.3743           0     0.62549
+ AR_tsyn_sum Stab_Ngroup Iso_Ngroup  Form_Ngroup End_Ngroup  Modf_Ngroup Merg_Ngroup H4_step_sum H4_no_NB    Ep-Ep_sum   Ep-Sp_sum  
+     0.21411           0           0    0.033203   0.0063477           0           0      87.514     0.14062  9.2607e+05       12636
+**** Number of members in clusters (global):
+N_members:            1           2           3           4           5
+Count    :       982.79      7.9546      0.3811    0.036133   0.0024414
+MemoryPool::finalize() is completed!
+******** FDPS has successfully finished. ********
+Info: removed 4 empty tmp file(s) on exit.

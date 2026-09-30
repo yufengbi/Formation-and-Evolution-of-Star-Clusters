@@ -12,3 +12,18 @@ homework_1/output/data.*.png
 
 # 提交给老师的快照压缩包（内容与 output/data.0~200 重复）
 homework_1/*.tar.gz
+
+# 作业 2：PeTar 的 ASCII 快照体积大（约 210 MB，占 output/ 的 98%），
+# 且可由 `bash run_all.sh` 完整重新生成，故不纳入版本控制。
+# 仓库内仍保留可核对结果的轻量产物：
+#   data.lagr / data.core   —— 拉格朗日半径与核心半径（主要结论的数据来源）
+#   data.par / RUN_INFO.txt —— 实际使用的参数与随机种子（可复现）
+#   output / progress 日志  —— 逐时刻能量诊断（能量守恒检验的依据）
+homework_2/output/*/run*/data.[0-9]*
+homework_2/__pycache__/
+homework_2/run*.log
+
+# 作业 2：失败实现的诊断转储文件（*.hard_large_energy_* / *.dump_large_step_*）
+# 体积大且可重新生成，只保留 petar.log 与 NOTE.txt
+homework_2/evidence/**/data.hard_large_energy_*
+homework_2/evidence/**/data.dump_large_step_*

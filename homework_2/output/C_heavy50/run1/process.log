@@ -1,0 +1,29 @@
+No parallel temporary files found to recover.
+G : 0.00449830997959438
+snapshot_format : ascii
+esc_snapshot_format : ascii
+calc_energy : True
+mass_fraction : [0.01 0.05 0.1  0.2  0.3  0.5  0.7  0.9  0.99]
+filename_prefix : data
+realtime_save : False
+realtime_save_mode : w
+/root/FESC/petar_install/include/petar/lagrangian.py:488: RuntimeWarning: invalid value encountered in divide
+  self.vr = np.append(self.vr, [-2.0*ekin/epot], axis=0)
+/root/FESC/petar_install/include/petar/lagrangian.py:488: RuntimeWarning: invalid value encountered in divide
+  self.vr = np.append(self.vr, [-2.0*ekin/epot], axis=0)
+/root/FESC/petar_install/include/petar/lagrangian.py:488: RuntimeWarning: invalid value encountered in divide
+  self.vr = np.append(self.vr, [-2.0*ekin/epot], axis=0)
+lagr data is saved in file: data.lagr
+core data is saved in file: data.core
+esc_single data is saved in file: data.esc_single
+esc_binary data is saved in file: data.esc_binary
+CPU time profile:
+read 0.040958136320114136
+find_pair 0.03936143219470978
+density 0.007209599018096924
+center_core 0.001081034541130066
+save_data 0.009269803762435913
+calc_pot 2.6226043701171875e-06
+lagr 0.021704256534576416
+escaper 0.003493398427963257
+bse 0.0

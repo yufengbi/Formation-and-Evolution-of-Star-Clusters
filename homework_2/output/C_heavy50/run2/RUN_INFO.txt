@@ -1,0 +1,13 @@
+config          = C_heavy50
+title           = 双质量 1/10 Msun，重星占数量 50%
+seed            = 9401
+N               = 1000
+R_half          = 1 pc (Plummer)
+t_rh            = 5.900 Myr   (由本实初始条件计算)
+t_end           = 12.0 Myr  (= 2.0 t_rh，题目要求 2-3 t_rh)
+output_interval = 0.5 Myr
+dt_soft(hex)    = 0x1p-12
+OMP_NUM_THREADS = 4
+attempts        = 1
+E0 / E(t_end)   = -25886.7700 / -25886.8100
+max|Modify|     = 1.59806e-05

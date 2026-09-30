@@ -1,0 +1,4 @@
+Transfer "mc.dat.10" to PeTar input data file "input"
+Skip rows: 0
+Add stellar evolution columns: no
+Unit convert: distance scale: 1.0;  mass scale: 1.0;  velocity scale: 1.022712165045695

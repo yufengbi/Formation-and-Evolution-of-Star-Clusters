@@ -1,0 +1,20 @@
+===== [20:27:41] B_heavy10_run1 : 双质量 1/10 Msun，重星占数量 10% =====
+   [1/40] seed = 5297   20:27:41
+      t_rh = 10.021 Myr  ->  t_end = 20.0 Myr
+      积分中（dt_soft=0, OMP=4）... 20:27:48
+      t=20.0  E0=-3124.50  E=-2810.86  maxModify=196  dump=11
+      ❌ 诊断文件过多 11
+      证据 -> /root/FESC/Formation-and-Evolution-of-Star-Clusters/homework_2/evidence/B_heavy10_run1_seed5297
+   [2/40] seed = 12294   20:31:15
+      t_rh = 10.042 Myr  ->  t_end = 20.0 Myr
+      积分中（dt_soft=0, OMP=4）... 20:31:18
+      t=20.0  E0=-3036.81  E=-2240.28  maxModify=342  dump=3
+      ❌ maxModify/|E0| = 0.112 > 0.01
+      证据 -> /root/FESC/Formation-and-Evolution-of-Star-Clusters/homework_2/evidence/B_heavy10_run1_seed12294
+   [3/40] seed = 2521   20:36:32
+      t_rh = 10.042 Myr  ->  t_end = 20.0 Myr
+      积分中（dt_soft=0, OMP=4）... 20:36:35
+      t=20.0  E0=-3135.19  E=-3135.05  maxModify=4.64e-06  dump=0
+      ✅ t=20.0 Myr  |dE/E|=4.178e-05  maxModify/|E0|=1.481e-09  dump=0
+      后处理 ...
+      ✅ 完成 (seed=2521, 共尝试 3 次)   20:40:29
